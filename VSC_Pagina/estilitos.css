@@ -1,0 +1,1495 @@
+/* html,body{ overflow-x: hidden ;} */
+body {
+  background-image: url(PNG/png\ background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-attachment: fixed;
+  color: #000000;            /* texto blanco para contraste */
+  margin: 0;                 
+  padding: 0;
+
+  /* animación de entrada general */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-in, transform 0.8s ease-in;
+
+}
+/* cuando la página termina de cargar */
+body.loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.manufacturing-consent-regular {
+  font-family: "Manufacturing Consent", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Saga";
+  src: url(fonts/Saga_Bold.ttf);
+}
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  height: 80px;
+  background-color: #0f0013;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(4px);
+}
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  line-height: 0;
+  height: 60px;
+}
+
+.logo-container:hover .rojo,
+.logo-container:focus-visible .rojo {
+  opacity: 0;
+  transform: translateY(3px);
+}
+
+.logo-container:hover .violeta,
+.logo-container:focus-visible .violeta {
+  opacity: 1;
+  transform: translateY(3px);
+}
+
+@media (max-width: 900px) {
+  .logo-container {
+    position: static;
+    transform: none;
+    margin: 0 auto 10px;
+    height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo {
+    transition: none;
+  }
+}
+
+.links {
+  position: absolute;
+  right: 100px; 
+  display: flex;
+  gap: 25px;
+}
+
+.logo {
+  display: block;
+  height: 100%;
+  transition: opacity .25s ease, transform .25s ease;
+  }
+
+.logo.violeta {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  }
+
+.links a {
+  font-family: "Saga";
+  color: #c3352f;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.links a:hover {
+  color: #4634ae;
+  transform: translateY(3px);
+}
+
+.search{
+  position:absolute;
+  left:100px;                           
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.search input{
+  width:220px;
+  background:transparent;
+  border:none;
+  border-bottom:1.5px solid rgba(255,255,255,.6);
+  color:#fff;
+  padding:6px 2px;
+  font-size:16px;
+  outline:none;
+  transition:border-color .25s ease, width .25s ease;
+}
+.search input{
+  width:150px;       
+  padding:4px 2px;   
+  font-size:14px;     
+}
+.search input:focus{
+  width:180px;        
+}
+
+.search button{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.35);
+  color:#fff;
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+  transition:all .25s ease;
+}
+.search button:hover{
+  background:#c23b3b;
+  border-color:#5e134a;
+}
+
+.visually-hidden{
+  position:absolute!important;
+  width:1px;height:1px;
+  padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
+
+@media (max-width: 900px){
+  header{ height:auto; padding:12px 16px; }
+  .logo{ position:static; transform:none; margin:0 auto 10px; }
+  .links, .search{ position:static; }
+  .links{ justify-content:center; flex-wrap:wrap; gap:14px; margin-top:8px; }
+  .search{ justify-content:center; margin-bottom:8px; }
+}
+
+.intro p{
+  font-family: "Manufacturing Consent";
+  color: #c3352f;
+  background-color: #0f0013;
+  font-size: 20px;
+  text-align: center;
+}
+
+.slides img{
+    width: 1800px;
+    z-index: 5;
+  flex-shrink: 0;
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+}
+
+.slides{
+    display: flex;
+    animation: slide 18s infinite;
+
+}
+
+nav{
+    overflow: hidden;
+    margin: auto;
+    width: 100%;
+}
+
+@keyframes slide {
+  0%, 8%   { transform: translateX(0); }
+  16%, 24% { transform: translateX(-100%); }
+  32%, 40% { transform: translateX(-200%); }
+  48%, 56% { transform: translateX(-300%); }
+  64%, 72% { transform: translateX(-400%); }
+  80%, 88% { transform: translateX(-500%); }
+  100%     { transform: translateX(-600%); }
+}
+
+.subtext{
+  text-align:center;
+  color:#c3352f;
+  font-family:"Manufacturing Consent", system-ui;
+  font-size:40px;
+  letter-spacing:1px;
+  margin:60px auto 40px;
+}
+
+.divider{
+  width: 200px;
+  height:2px;
+  background:#c3352f;
+  border-radius:2px;
+  margin:12px auto 0;
+}
+
+.scroll-down{
+  text-align:center;
+  margin:30px 0 50px;
+}
+.scroll-down span{
+  font-size:24px;
+  color:#c3352f;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(6px); }
+}
+
+
+:root{
+  --background-dark: #2d3548;
+  --text-light: rgba(255,255,255,0.6);
+  --text-lighter: #c3352f;
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+  --width-container: 1200px;
+}
+
+*{
+  border: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+}
+
+body{
+  height: 100%;
+}
+
+.hero-section{
+  align-items: flex-start;
+  
+  display: flex;
+  min-height: 100%;
+  justify-content: center;
+  padding: var(--spacing-xxl) var(--spacing-l);
+}
+
+.card-grid{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-column-gap: var(--spacing-l);
+  grid-row-gap: var(--spacing-l);
+  max-width: var(--width-container);
+  width: 100%;
+}
+
+@media(min-width: 540px){
+  .card-grid{
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media(min-width: 960px){
+  .card-grid{
+    grid-template-columns: repeat(4, 1fr); 
+  }
+}
+
+.card1{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card1:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card2{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card2:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card3{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card3:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card4{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card4:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+.card__background{
+  background-size: cover;
+  background-position: center;
+ 
+  bottom: 0;
+  filter: brightness(0.75) saturate(1.2) contrast(0.85);
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-origin: center;
+  transform: scale(1) translateZ(0);
+  transition: 
+    filter 200ms linear,
+    transform 200ms linear;
+}
+
+.card1:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card2:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card3:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card4:hover .card__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card-grid:hover > .card:not(:hover) .card__background{
+  filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content{
+  left: 0;
+  padding: var(--spacing-l);
+  position: absolute;
+  top: 0;
+}
+
+.card__category{
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-s);
+  text-transform: uppercase;
+}
+
+.card__heading{
+  color: var(--text-lighter);
+  font-size: 1.9rem;
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+  line-height: 1.4;
+  word-spacing: 100%;
+}
+
+.card1__background {
+  background-image: url("PNG/collar-rojo-corazon.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card2__background {
+  background-image: url("jpg/cruz-choker.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card3__background {
+  background-image: url("jpg/caravanas-largas.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card4__background {
+  background-image: url("PNG/anillo-de-espinas-rojo.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+/* cambia la imagen al pasar el mouse */
+.card1:hover .card1__background {
+  background-image: url("jpg/collar-rojo-dije.jpg");
+  transform: scale(1.05);
+}
+
+.card2:hover .card2__background {
+  background-image: url("jpg/modelo\ cruz.jpg");
+  transform: scale(1.05);
+}
+
+.card3:hover .card3__background {
+  background-image: url("jpg/caravana-modelo.jpg");
+  transform: scale(1.05);
+}
+
+.card4:hover .card4__background {
+  background-image: url("jpg/modelo-anillo-espinas.jpg");
+  transform: scale(1.05);
+}
+
+.card__category{color: rgb(255, 255, 255);}
+
+.footer {
+  width: 100%;
+  position: relative;
+  height: auto;
+  background-color: #0f0013;
+}
+.footer .col {
+  width: 190px;
+  height: auto;
+  float: left;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding: 0px 20px 20px 20px;
+  
+}
+.footer .col h1 {
+  padding: 0;
+  font-family: "Manufacturing Consent";
+  font-size: 18px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: #c3352f;
+  text-transform: lowercase;
+  font-weight: normal;
+  letter-spacing: 0.250em;
+
+}
+.footer .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  
+}
+.footer .col ul li {
+  color: #999999;
+  font-size: 18px;
+  font-family: "Saga";
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+.social ul li {
+  display: inline-block;
+  padding-right: 5px !important;
+}
+
+.footer .col ul li:hover {
+  color: #ffffff;
+  transition: .1s;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+}
+.clearfix {
+  clear: both;
+}
+@media only screen and (min-width: 1280px) {
+  .contain {
+    width: 1200px;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 1139px) {
+  .contain .social {
+    width: 1000px;
+    display: block;
+  }
+  .social h1 {
+    margin: 0px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .footer .col {
+    width: 33%;
+  }
+  .footer .col h1 {
+    font-size: 14px;
+  }
+  .footer .col ul li {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 500px) {
+    .footer .col {
+      width: 50%;
+    }
+    .footer .col h1 {
+      font-size: 14px;
+    }
+    .footer .col ul li {
+      font-size: 13px;
+    }
+}
+@media only screen and (max-width: 340px) {
+  .footer .col {
+    width: 100%;
+  }
+  
+}
+ .info {margin-left: 30px;}
+ .util{margin-left: 30px;}
+ .lista1{ margin-left: 30px;}
+
+ /* Anillos */
+ .card1anillo{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card1anillo:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card2anillo{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card2anillo:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card3anillo{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card3anillo:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card4anillo{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card4anillo:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card1anillo:hover .card1anillo__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card2anillo:hover .card2anillo__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card3anillo:hover .card3anillo__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card4anillo:hover .card4anillo__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+
+.card1anillo:hover .card1anillo__background {
+  background-image: url("jpg/modelo-anillo-espinas.jpg");
+  transform: scale(1.05);
+}
+
+.card2anillo:hover .card2anillo__background {
+  background-image: url("jpg/modelo-anillo-violeta.jpg");
+  transform: scale(1.05);
+}
+
+.card3anillo:hover .card3anillo__background {
+  background-image: url("jpg/anillo-hombre-modelo.jpg");
+  transform: scale(1.05);
+}
+
+.card4anillo:hover .card4anillo__background {
+  background-image: url("jpg/modelo-estrella.jpg");
+  transform: scale(1.05);
+}
+
+
+.card1anillo__background {
+  background-image: url("jpg/anillo-de-espinas-rojo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card2anillo__background {
+  background-image: url("jpg/anillo-espinas-violeta.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card3anillo__background {
+  background-image: url("jpg/anillo-hombre.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card4anillo__background {
+  background-image: url("jpg/anillo-estrella.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+/* Caravanas */
+
+.card1caravana{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card1caravana:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card2caravana{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card2caravana:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card3caravana{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card3caravana:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card4caravana{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card4caravana:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card1caravana:hover .card1caravana__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card2caravana:hover .card2caravana__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card3caravana:hover .card3caravana__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card4caravana:hover .card4caravana__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+
+.card1caravana:hover .card1caravana__background {
+  background-image: url("jpg/caravana-modelo.jpg");
+  transform: scale(1.05);
+}
+
+.card2caravana:hover .card2caravana__background {
+  background-image: url("jpg/modelo-arañas.jpg");
+  transform: scale(1.05);
+}
+
+
+.card1caravana__background {
+  background-image: url("jpg/caravanas-largas.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card2caravana__background {
+  background-image: url("jpg/caravanas-araña.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+/* Choker */
+
+.card1choker{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card1choker:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card2choker{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card2choker:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card3choker{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card3choker:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card4choker{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card4choker:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card1choker:hover .card1choker__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card2choker:hover .card2choker__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card3choker:hover .card3choker__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card4choker:hover .card4choker__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+
+.card1choker:hover .card1choker__background {
+  background-image: url("jpg/modelo-choker-punk.jpg");
+  transform: scale(1.05);
+}
+
+.card2choker:hover .card2choker__background {
+  background-image: url("jpg/modelo\ cruz.jpg");
+  transform: scale(1.05);
+}
+
+
+.card1choker__background {
+  background-image: url("jpg/choker-punk.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card2choker__background {
+  background-image: url("jpg/cruz-choker.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card3choker__background {
+  background-image: url("https://diegodom.com/cdn/shop/products/anillorosaespinas2_2048x.jpg?v=1605823338");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card4choker__background {
+  background-image: url("PNG/anillo-de-espinas-rojo.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+/* Collares */
+
+.card1collar{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card1collar:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card2collar{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card2collar:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card3collar{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card3collar:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card4collar{
+  list-style: none;
+  position: relative;
+  font-family: "Saga";
+  color: #000000;
+}
+
+.card4collar:before{
+  content: '';
+  display: block;
+  padding-bottom: 150%;
+  width: 100%;
+}
+
+.card1collar:hover .card1collar__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card2collar:hover .card2collar__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card3collar:hover .card3collar__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+.card4collar:hover .card4collar__background{
+  transform: scale(1.05) translateZ(0);
+
+}
+
+
+.card1collar:hover .card1collar__background {
+  background-image: url("jpg/collar-rojo-dije.jpg");
+  transform: scale(1.05);
+}
+
+.card2collar:hover .card2collar__background {
+  background-image: url("jpg/collar-violeta-dije.jpg");
+  transform: scale(1.05);
+}
+
+.card3collar:hover .card3collar__background {
+  background-image: url("jpg/dije-cruz-violeta.jpg");
+  transform: scale(1.05);
+}
+
+.card4collar:hover .card4collar__background {
+  background-image: url("jpg/dije-cruz-roja.jpg");
+  transform: scale(1.05);
+}
+
+
+.card1collar__background {
+  background-image: url("jpg/collar-rojo-corazon.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card2collar__background {
+  background-image: url("PNG/collar-violeta-corazon.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card3collar__background {
+  background-image: url("PNG/collar-cruz-violeta.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+.card4collar__background {
+  background-image: url("PNG/collar-cruz-roja.png");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  
+  transition: transform 0.2s linear;
+}
+
+/* método de pago */
+
+.row {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.row body {
+  font-family: "Saga";
+  color: #c3352f;
+}
+
+.row form {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #0f0013;
+  font-family: "Saga";
+  font-size: large;
+  color: #c3352f;
+}
+
+
+ .pago-logo {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+
+.row input[type="text"],
+.row input[type="password"],
+.row input[type="date"],
+.row input[type="datetime"],
+.row input[type="email"],
+.row input[type="number"],
+.row input[type="search"],
+.row input[type="tel"],
+.row input[type="time"],
+.row input[type="url"],
+textarea,
+.row select {
+  background: rgba(159, 5, 5, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #660119;
+  color: #ffe9e9;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+.row select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #660119;
+  font-size: 18px;
+  align-items: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: fit-content;
+  border: 1px solid #470011;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  margin: 20px auto;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #a71510;
+  color: #ffffff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+@media screen and (min-width: 480px) {
+
+  .row form {
+    max-width: 480px;
+  }
+
+}
+
+/* checks y camión */
+
+label i{
+  color: #a71510;
+}
+.compromiso i{
+  color: #a71510;
+}
+
+/* Compromiso Pagos */
+
+.compromiso{
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+/* Texto JS */
+
+.prod-js{
+  text-align: center;
+  color: #f32c2c;
+}
+
+/* nosotros */
+
+.section-quienes {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin: 80px auto;
+  max-width: 1200px;
+  padding: 0 40px;
+}
+
+/* texto general */
+.section-quienes .texto {
+  flex: 1;
+  color: #e6e6e6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* título */
+.section-quienes .texto h2 {
+  font-family: 'Manufacturing Consent';
+  color: #d62020;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d62020;
+  letter-spacing: 2px;
+}
+
+/* imagen */
+.section-quienes .catedral {
+  flex: 1;
+  max-width: 500px;
+  margin-top: 60px; /* ajustá este valor hasta que te quede justo donde querés */
+}
+
+.section-quienes .catedral img {
+  width: 632px;
+  display: block;
+  filter: brightness(0.9);
+}
+
+.origen {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  margin: 80px auto;
+  width: 1320px;
+  padding: 0 30px;
+}
+
+/* texto general */
+.origen .new_frame {
+  flex: 1;
+  color: #e6e6e6;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  padding-left: 120px;
+}
+.origen .brujota {
+  flex: 2;
+  max-width: 500px;
+  margin-top: 60px; 
+}
+
+.origen .brujota img {
+  width: 632px;
+  display: block;
+  filter: brightness(0.9);
+}
+
+.origen .new_frame h2 {
+  font-family: 'Manufacturing Consent';
+  color: #d62020;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d62020;
+  letter-spacing: 2px;
+}
+
+/* payment */
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Ubuntu');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Saga";
+}
+
+body{
+  margin: 0 px;
+}
+
+.payment{
+  background: #0f0013;
+  max-width: 360px;
+  margin: 80px auto;
+  height: auto;
+  padding: 35px;
+  padding-top: 70px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.payment h2{
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  color: #c3352f;
+}
+
+.form .label{
+  display: block;
+  color: #c3352f;
+  margin-bottom: 6px;
+}
+
+.input {
+  padding: 13px 0px 13px 25px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #2c000a;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  outline: none;
+  font-size: 16px;
+  background-color: #660119;
+  color: #ffffff; /* para que el texto se vea */
+}
+
+.input::placeholder {
+  color: #ffffff;
+  opacity: 0.8; /* opcional, por si querés que se note un poco menos */
+}
+
+
+.card-grp{
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-item{
+  width: 48%;
+}
+
+.space{
+  margin-bottom: 20px;
+}
+
+.icon-relative{
+  position: relative;
+}
+
+.icon-relative .fas,
+.icon-relative .far{
+  position: absolute;
+  bottom: 12px;
+  left: 15px;
+  font-size: 20px;
+  color: #f51d16;
+}
+
+.btn{
+  margin-top: 40px;
+  background: #660119;
+  padding: 12px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.payment-logo{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background: #e2231c;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #660119;
+  text-align: center;
+  line-height: 85px;
+}
+
+.payment-logo:before{
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 90px;
+  height: 90px;
+  background: #000000;
+  border-radius: 50%;
+}
+
+.payment-logo img {
+  position: relative;
+  width: 60px; 
+  height: 60px;
+  margin-top: 20px; /* para centrar dentro del círculo */
+}
+
+
+@media screen and (max-width: 420px){
+  .card-grp{
+    flex-direction: column;
+  }
+  .card-item{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .btn{
+    margin-top: 20px;
+  }
+}
+
+
+
+
+
+
+

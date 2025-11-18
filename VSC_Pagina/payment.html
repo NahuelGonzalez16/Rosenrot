@@ -1,0 +1,143 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosenrot</title>
+    <link rel="stylesheet" href="estilitos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=M+PLUS+Rounded+1c&family=Manufacturing+Consent&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+</head>
+<body>
+     <header>
+    <div class="logo-container">
+      <a href="index.html" class="logo" aria-label="rosenrot">
+      <img src="logo/Logo en Rojo.png"    alt="Rosenrot" class="logo rojo">
+      <img src="logo/Logo en Violeta.png.png"  alt="" aria-hidden="true" class="logo violeta"></a>
+    </div>
+    <div class="links">
+      <a href="quienessomos.html">Nosotros</a>
+      <a href="productos.html">Productos</a>
+    </div>
+    <!-- buscador -->
+    <form class="search" action="buscar.html" method="get" role="search">
+      <label class="visually-hidden" for="q">buscar</label>
+      <input id="q" name="q" type="search" placeholder="buscar piezas..." />
+      <button type="submit" aria-label="buscar">
+      <!-- ícono lupa en svg -->
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path d="M10 18a8 8 0 1 1 5.3-14.1A8 8 0 0 1 10 18zm9.7 2.3-5-5"
+              fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+      </button>
+      </form>
+    </header>
+    <section class="intro">
+      <p>Joyería artesanal alternativa.</p>
+    </section>
+
+        <div class="wrapper">
+            <div class="payment">
+            <div class="payment-logo">
+            <img src="logo/Mini Logo Rojo.png" alt="logo rosenrot">
+        </div>
+
+    <h2>Pago Seguro</h2>
+    <div class="form">
+      <div class="card space icon-relative">
+        <label class="label">Titular</label>
+        <input type="text" class="input" placeholder="Ej: Till Lindemann">
+        <i class="fas fa-user"></i>
+      </div>
+      <div class="card space icon-relative">
+        <label class="label">Número de Tarjeta</label>
+        <input type="text" class="input" data-mask="0000 0000 0000 0000" placeholder="Ej: 2332 0112 0322 1222">
+        <i class="far fa-credit-card"></i>
+      </div>
+      <div class="card-grp space">
+        <div class="card-item icon-relative">
+          <label class="label">Expiry date:</label>
+          <input type="text" name="expiry-data" class="input"  placeholder="00 / 00">
+          <i class="far fa-calendar-alt"></i>
+        </div>
+        <div class="card-item icon-relative">
+          <label class="label">CVC:</label>
+          <input type="text" class="input" data-mask="000" placeholder="000">
+          <i class="fas fa-lock"></i>
+        </div>
+      </div>
+
+      <div class="btn">
+        Pay
+      </div>
+
+    </div>
+  </div>
+</div>
+</section>
+  </div>
+<div class="footer">
+            <div class="contain">
+                <div class="col">
+                    <h1>Contacto</h1>
+                    <ul>
+                        <li>+598 94 523 674</li>
+                        <li>2309 734 2112</li>
+                        <li>contacto@rosenrot.com</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1 class="info">Info</h1>
+                    <ul>
+                        <li class="lista1">Empleo</li>
+                        <li class="lista1">Atención al cliente</li>
+                        <li class="lista1">Avisos legales</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h1 class="util">Utilidad</h1>
+                    <ul>
+                        <li class="lista1">Cuenta</li>
+                        <li class="lista1">Planes de suscripción</li>
+                        <li class="lista1">Servicios</li>
+                    </ul>
+                </div>
+                <div class="col">
+
+                </div>
+                <div class="col">
+                </div>
+                <div class="col social">
+                    <h1>Social</h1>
+                    <ul>
+                        <li><i class="fa-brands fa-instagram" width="32" style="width: 32px;"></i></li>
+                        <li><i class="fa-brands fa-twitter" width="32" style="width: 32px;"></i></li>
+                        <li><i class="fa-brands fa-facebook" width="32" style="width: 32px;"></i></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </main>
+    <script>
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+  });
+  </script>
+    <script>
+    $("input[name='expiry-data']").mask("00 / 00");
+    </script>
+</body>
+</html>
